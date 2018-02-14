@@ -9,7 +9,6 @@ import  { HEROES } from './mock-heroes';
 
 @Injectable()
 export class HeroService {
-
 	
   constructor() { }
 
