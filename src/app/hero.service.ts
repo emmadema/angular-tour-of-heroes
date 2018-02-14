@@ -15,11 +15,15 @@ export class HeroService {
   		private messageService: MessageService
   	) { }
 
-  	private log
+  	private log(message: string) {
+  		this.messageService.add('Hero Service: ' + message);
+  	}
+
+  	private heroesUrl = 'api/heroes';
 
 	getHeroes(): Observable<Hero[]> {
 		this.messageService.add('HeroService: fetched heroes');
-		return of(HEROES);
+		return this.http.get<Hero[]>(this.heroesUrl)
 	}
 
 	getHero(id: number): Observable<Hero> {
